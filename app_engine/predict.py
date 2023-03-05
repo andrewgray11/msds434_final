@@ -1,7 +1,9 @@
 import joblib 
 import pandas as pd
+import tensorflow as tf
 
-model = joblib.load("logistic_regression_v1.pkl")
+
+model = tf.keras.models.load_model("gs://msds-434-final-377902.appspot.com/model_log/saved_model.pb")
 
 def make_prediction(inputs): 
     """
@@ -9,7 +11,7 @@ def make_prediction(inputs):
     """
     inputs_df = pd.DataFrame(
         inputs, 
-        columns=["sepal_length_cm", "sepal_width_cm", "petal_length_cm", "petal_width_cm"]
+        columns=["sepal_length", "sepal_width", "petal_length", "petal_width"]
         )
     predictions = model.predict(inputs_df)
     
