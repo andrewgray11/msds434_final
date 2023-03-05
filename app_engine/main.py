@@ -20,10 +20,10 @@ def index():
 def predict():
     data_json = request.get_json()
     
-    sepal_length_cm = data_json["sepal_length_cm"]
-    sepal_width_cm = data_json["sepal_width_cm"]
-    petal_length_cm = data_json["petal_length_cm"]
-    petal_width_cm = data_json["petal_width_cm"]
+    sepal_length_cm = data_json["sepal_length"]
+    sepal_width_cm = data_json["sepal_width"]
+    petal_length_cm = data_json["petal_length"]
+    petal_width_cm = data_json["petal_width"]
 
     data = np.array([[sepal_length_cm, sepal_width_cm, petal_length_cm, petal_width_cm]])
     predictions = make_prediction(data)
